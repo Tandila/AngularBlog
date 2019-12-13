@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Provider } from '@angular/core';
+import { environment } from '../environments/environment';
 
+import { NgModule, Provider } from '@angular/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import {registerLocaleData} from '@angular/common';
+import { registerLocaleData } from '@angular/common';
 import ruLocale from '@angular/common/locales/ru';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,8 +13,9 @@ import { PostPageComponent } from './post-page/post-page.component';
 import { PostComponent } from './shared/components/post/post.component';
 import { SharedModule } from './shared/shared.module';
 import { AuthInterceptor } from './shared/auth.interceptor';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
-registerLocaleData(ruLocale, 'ru')
+registerLocaleData(ruLocale, 'ru');
 
 const INTERCEPTOR_PROVIDER: Provider = {
     provide: HTTP_INTERCEPTORS,
@@ -29,7 +31,14 @@ const INTERCEPTOR_PROVIDER: Provider = {
         PostPageComponent,
         PostComponent
     ],
-    imports: [BrowserModule, AppRoutingModule, SharedModule],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        SharedModule,
+        ServiceWorkerModule.register('ngsw-worker.js', {
+            enabled: environment.production
+        })
+    ],
     providers: [INTERCEPTOR_PROVIDER],
     bootstrap: [AppComponent]
 })
