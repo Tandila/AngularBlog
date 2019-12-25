@@ -108,3 +108,8 @@ input[type="submit"] {
 .ft-legal-list li:nth-last-child(2) {
   flex: 1;
 }
+.wrapper {
+  display: table;
+  height: 100%;
+  width: 100%;
+}

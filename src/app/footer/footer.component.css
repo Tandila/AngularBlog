@@ -127,4 +127,10 @@ input[type=submit] {
   flex: 1;
 }
 
+.wrapper {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
 /*# sourceMappingURL=footer.component.css.map */
