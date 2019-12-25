@@ -14,6 +14,7 @@ import { PostComponent } from './shared/components/post/post.component';
 import { SharedModule } from './shared/shared.module';
 import { AuthInterceptor } from './shared/auth.interceptor';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { FooterComponent } from './footer/footer.component';
 
 registerLocaleData(ruLocale, 'ru');
 
@@ -29,7 +30,8 @@ const INTERCEPTOR_PROVIDER: Provider = {
         MainLayoutComponent,
         HomePageComponent,
         PostPageComponent,
-        PostComponent
+        PostComponent,
+        FooterComponent
     ],
     imports: [
         BrowserModule,

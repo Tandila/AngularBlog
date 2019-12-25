@@ -1,7 +1,15 @@
-<nav class="navbar main">
-  <h1>Blog</h1>
+<nav class="navbar bg-primary">
+  <h1>
+    <a routerLink="/">Admin</a>
+  </h1>
+  <ul>
+    <li routerLinkActive="active">
+      <a [routerLink]="['/admin', 'login']">Login</a>
+    </li>
+  </ul>
 </nav>
 
 <div class="container">
   <router-outlet></router-outlet>
 </div>
+<app-footer></app-footer>
